@@ -9,8 +9,8 @@ function App() {
     <div className="App">
         <Header/>
         <div className="Main">
-            <TodoList/>
-            <TodoList/>
+            <TodoList title={'grocery list'}/>
+            <TodoList title={'shopping list'}/>
         </div>
 
     </div>

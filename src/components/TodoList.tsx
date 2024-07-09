@@ -1,11 +1,13 @@
 
+type TodolistPropsType = {
+    title: string;
+}
 
 
-
-export function TodoList() {
+export function TodoList({title}: TodolistPropsType) {
     return (
         <div className="todolist">
-            <h3>Todolist</h3>
+            <h3>{title}</h3>
             <input/>
             <button>+</button>
             <ul>
