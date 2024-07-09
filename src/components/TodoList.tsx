@@ -5,12 +5,12 @@
 export function TodoList() {
     return (
         <div className="todolist">
-            <h3></h3>
+            <h3>Todolist</h3>
             <input/>
             <button>+</button>
             <ul>
                 <li>
-                    <input/>
+                    <input type='checkbox'/>
                     <span>text</span>
                     <button>+</button>
                     <button>!</button>
