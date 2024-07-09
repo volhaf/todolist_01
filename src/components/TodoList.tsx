@@ -13,15 +13,19 @@ export function TodoList({title, tasks}: TodolistPropsType) {
             <input/>
             <button>+</button>
             <ul>
-                <li key={tasks[0].id}>
-                    <input
-                        type='checkbox'
-                        checked={tasks[0].isDone}
-                    />
-                    <span>{tasks[0].title}</span>
-                    <button>+</button>
-                    <button>!</button>
-                </li>
+                {tasks.map(t => {
+                    return (
+                        <li key={t.id}>
+                            <input
+                                type='checkbox'
+                                checked={t.isDone}
+                            />
+                            <span>{t.title}</span>
+                            <button>+</button>
+                            <button>!</button>
+                        </li>
+                    )
+                })}
             </ul>
             <button>All</button>
             <button>Active</button>
