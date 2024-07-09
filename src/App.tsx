@@ -4,6 +4,11 @@ import './styles/App.css';
 import {TodoList} from "./components/TodoList";
 import {Header} from "./components/Header";
 
+export type TaskType = {
+    id: string,
+    title: string,
+    isDone: boolean,
+}
 function App() {
   return (
     <div className="App">
