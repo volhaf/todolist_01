@@ -11,14 +11,16 @@ export type TaskType = {
 }
 function App() {
     const [tasks, setTasks] = useState<TaskType[]>([
-        {id: 1, title: 'Task 1', isDone: false},
+        {id: 1, title: 'milk', isDone: false},
     ]);
+
+
   return (
     <div className="App">
         <Header/>
         <div className="Main">
-            <TodoList title={'grocery list'}/>
-            <TodoList title={'shopping list'}/>
+            <TodoList title={'grocery list'} tasks={tasks} />
+
         </div>
 
     </div>
