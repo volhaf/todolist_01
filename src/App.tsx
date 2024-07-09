@@ -12,6 +12,10 @@ export type TaskType = {
 function App() {
     const [tasks, setTasks] = useState<TaskType[]>([
         {id: 1, title: 'milk', isDone: false},
+        {id: 1, title: 'milk', isDone: false},
+        {id: 1, title: 'milk', isDone: false},
+        {id: 1, title: 'milk', isDone: false},
+
     ]);
 
 
