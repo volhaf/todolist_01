@@ -1,4 +1,5 @@
 import {TaskType} from "../App";
+import {Button} from "./Button";
 
 type TodolistPropsType = {
     title: string;
@@ -11,7 +12,7 @@ export function TodoList({title, tasks}: TodolistPropsType) {
         <div className="todolist">
             <h3>{title}</h3>
             <input/>
-            <button>+</button>
+            <Button title={'add'} onClick={()=>{}}/>
             {tasks.length === 0 ? (
                 <p>no tasks</p>
             ) : (
@@ -24,8 +25,8 @@ export function TodoList({title, tasks}: TodolistPropsType) {
                                     checked={t.isDone}
                                 />
                                 <span>{t.title}</span>
-                                <button>+</button>
-                                <button>!</button>
+                                <Button title={'X'} onClick={()=>{}}/>
+                                <Button title={'!'} onClick={()=>{}}/>
                             </li>
                         )
                     })}
@@ -33,9 +34,9 @@ export function TodoList({title, tasks}: TodolistPropsType) {
             )
             }
 
-            <button>All</button>
-            <button>Active</button>
-            <button>Done</button>
+            <Button title={'Active'} onClick={()=>{}} />
+            <Button title={'Active'} onClick={()=>{}} />
+            <Button title={'Done'} onClick={()=>{}} />
         </div>
     )
 }
