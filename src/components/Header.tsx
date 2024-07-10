@@ -1,11 +1,10 @@
+import {Button} from "./Button";
 
 export function Header() {
     return (
-        <div>
             <header className="header">
                 <input/>
-                <button>AddTask</button>
+                <Button title={'Add tasks'} onClick={()=>{}} />
             </header>
-        </div>
     )
 }

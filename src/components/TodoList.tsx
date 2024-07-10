@@ -1,5 +1,6 @@
 import {TaskType} from "../App";
 import {Button} from "./Button";
+import {Fragment} from "react";
 
 type TodolistPropsType = {
     title: string;
@@ -11,8 +12,11 @@ export function TodoList({title, tasks}: TodolistPropsType) {
     return (
         <div className="todolist">
             <h3>{title}</h3>
-            <input/>
-            <Button title={'add'} onClick={()=>{}}/>
+            <div className={'input_conteiner'}>
+                <input/>
+                <Button title={'add'} onClick={() => {
+                }}/>
+            </div>
             {tasks.length === 0 ? (
                 <p>no tasks</p>
             ) : (
@@ -25,18 +29,23 @@ export function TodoList({title, tasks}: TodolistPropsType) {
                                     checked={t.isDone}
                                 />
                                 <span>{t.title}</span>
-                                <Button title={'X'} onClick={()=>{}}/>
-                                <Button title={'!'} onClick={()=>{}}/>
+                                <div>
+                                    <Button title={'X'} onClick={()=>{}}/>
+                                    <Button title={'!'} onClick={()=>{}}/>
+                                </div>
+
                             </li>
                         )
                     })}
                 </ul>
             )
             }
+<div className={'button_conteiner'}>
+    <Button title={'All'} onClick={()=>{}} />
+    <Button title={'Active'} onClick={()=>{}} />
+    <Button title={'Done'} onClick={()=>{}} />
+</div>
 
-            <Button title={'Active'} onClick={()=>{}} />
-            <Button title={'Active'} onClick={()=>{}} />
-            <Button title={'Done'} onClick={()=>{}} />
         </div>
     )
 }
