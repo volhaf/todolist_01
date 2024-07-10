@@ -1,4 +1,4 @@
-import {TaskType} from "../App";
+import {FilterType, TaskType} from "../App";
 import {Button} from "./Button";
 import {Fragment} from "react";
 
@@ -7,10 +7,11 @@ type TodolistPropsType = {
     tasks: TaskType[]
     removeTask: (taskId: number) => void;
     activeTask: (taskId: number) => void;
+    filter: FilterType;
 }
 
 
-export function TodoList({title, tasks, removeTask, activeTask}: TodolistPropsType) {
+export function TodoList({title, tasks, removeTask, activeTask, filter}: TodolistPropsType) {
     return (
         <div className="todolist">
             <h3>{title}</h3>

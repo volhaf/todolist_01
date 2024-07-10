@@ -33,6 +33,17 @@ function activeTask (taskId: number) {
 
 }
 
+    function changeFilter (filter: FilterType) {
+        setFilter(filter);
+    }
+
+    let taskFilter = tasks;
+    if (filter === 'active') {
+        taskFilter = tasks.filter(t => t.isDone === false)
+    }
+    if (filter === 'completed') {
+        taskFilter = tasks.filter(t => t.isDone === true)
+    }
 
 
   return (
@@ -41,7 +52,8 @@ function activeTask (taskId: number) {
         <div className="Main">
             <TodoList
                 title={'grocery list'}
-                tasks={tasks}
+                tasks={taskFilter}
+                filter={filter}
                 removeTask={removeTask}
                 activeTask={activeTask}/>
 
