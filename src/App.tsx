@@ -41,7 +41,7 @@ function activeTask (taskId: number) {
     if (filter === 'active') {
         taskFilter = tasks.filter(t => t.isDone === false)
     }
-    if (filter === 'completed') {
+    if (filter === 'done') {
         taskFilter = tasks.filter(t => t.isDone === true)
     }
 
