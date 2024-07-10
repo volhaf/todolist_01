@@ -5,17 +5,17 @@ import {Fragment} from "react";
 type TodolistPropsType = {
     title: string;
     tasks: TaskType[]
+    removeTask: (taskId: number) => void;
 }
 
 
-export function TodoList({title, tasks}: TodolistPropsType) {
+export function TodoList({title, tasks, removeTask}: TodolistPropsType) {
     return (
         <div className="todolist">
             <h3>{title}</h3>
             <div className={'input_conteiner'}>
                 <input/>
-                <Button title={'add'} onClick={() => {
-                }}/>
+                <Button title={'add'} onClick={() =>{}} />
             </div>
             {tasks.length === 0 ? (
                 <p>no tasks</p>
@@ -30,7 +30,7 @@ export function TodoList({title, tasks}: TodolistPropsType) {
                                 />
                                 <span>{t.title}</span>
                                 <div>
-                                    <Button title={'X'} onClick={()=>{}}/>
+                                    <Button title={'X'} onClick={()=>removeTask(t.id)}/>
                                     <Button title={'!'} onClick={()=>{}}/>
                                 </div>
 

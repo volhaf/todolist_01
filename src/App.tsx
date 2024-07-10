@@ -12,18 +12,28 @@ export type TaskType = {
 function App() {
     const [tasks, setTasks] = useState<TaskType[]>([
         {id: 1, title: 'milk', isDone: false},
-        {id: 1, title: 'milk', isDone: false},
-        {id: 1, title: 'milk', isDone: false},
-        {id: 1, title: 'milk', isDone: false},
+        {id: 2, title: 'milk', isDone: false},
+        {id: 3, title: 'milk', isDone: false},
+        {id: 4, title: 'milk', isDone: false},
 
     ]);
+
+
+    //FUNCTION
+
+function removeTask (taskId: number) {
+    const nextState: Array<TaskType> = tasks.filter (t => t.id !== taskId)
+    setTasks (nextState);
+}
+
+
 
 
   return (
     <div className="App">
         <Header/>
         <div className="Main">
-            <TodoList title={'grocery list'} tasks={tasks} />
+            <TodoList title={'grocery list'} tasks={tasks} removeTask={removeTask}/>
 
         </div>
 
