@@ -8,10 +8,11 @@ type TodolistPropsType = {
     removeTask: (taskId: number) => void;
     activeTask: (taskId: number) => void;
     filter: FilterType;
+    changeFilter: (filter: FilterType) => void;
 }
 
 
-export function TodoList({title, tasks, removeTask, activeTask, filter}: TodolistPropsType) {
+export function TodoList({title, tasks, removeTask, activeTask, changeFilter, filter}: TodolistPropsType) {
     return (
         <div className="todolist">
             <h3>{title}</h3>
@@ -43,9 +44,9 @@ export function TodoList({title, tasks, removeTask, activeTask, filter}: Todolis
             )
             }
 <div className={'button_conteiner'}>
-    <Button title={'All'} onClick={()=>{}} />
-    <Button title={'Active'} onClick={()=>{}} />
-    <Button title={'Done'} onClick={()=>{}} />
+    <Button title={'All'} onClick={()=>changeFilter('all')} />
+    <Button title={'Active'} onClick={()=>changeFilter('active')} />
+    <Button title={'Done'} onClick={()=>changeFilter('done')} />
 </div>
 
         </div>

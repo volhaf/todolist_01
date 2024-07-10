@@ -10,7 +10,7 @@ export type TaskType = {
     isDone: boolean,
 }
 
-export type FilterType = 'all' | 'active' | 'completed';
+export type FilterType = 'all' | 'active' | 'done';
 
 function App() {
     let [tasks, setTasks] = useState<TaskType[]>([
@@ -54,6 +54,7 @@ function activeTask (taskId: number) {
                 title={'grocery list'}
                 tasks={taskFilter}
                 filter={filter}
+                changeFilter={changeFilter}
                 removeTask={removeTask}
                 activeTask={activeTask}/>
 
