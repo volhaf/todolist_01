@@ -26,6 +26,9 @@ function removeTask (taskId: number) {
     setTasks (nextState);
 }
 
+function activeTask (taskId: number) {
+
+}
 
 
 
@@ -33,7 +36,11 @@ function removeTask (taskId: number) {
     <div className="App">
         <Header/>
         <div className="Main">
-            <TodoList title={'grocery list'} tasks={tasks} removeTask={removeTask}/>
+            <TodoList
+                title={'grocery list'}
+                tasks={tasks}
+                removeTask={removeTask}
+                activeTask={activeTask}/>
 
         </div>
 

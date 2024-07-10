@@ -6,10 +6,11 @@ type TodolistPropsType = {
     title: string;
     tasks: TaskType[]
     removeTask: (taskId: number) => void;
+    activeTask: (taskId: number) => void;
 }
 
 
-export function TodoList({title, tasks, removeTask}: TodolistPropsType) {
+export function TodoList({title, tasks, removeTask, activeTask}: TodolistPropsType) {
     return (
         <div className="todolist">
             <h3>{title}</h3>
@@ -31,7 +32,7 @@ export function TodoList({title, tasks, removeTask}: TodolistPropsType) {
                                 <span>{t.title}</span>
                                 <div>
                                     <Button title={'X'} onClick={()=>removeTask(t.id)}/>
-                                    <Button title={'!'} onClick={()=>{}}/>
+                                    <Button title={'!'} onClick={()=>activeTask(t.id)}/>
                                 </div>
 
                             </li>
