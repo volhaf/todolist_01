@@ -9,8 +9,11 @@ export type TaskType = {
     title: string,
     isDone: boolean,
 }
+
+export type FilterType = 'all' | 'active' | 'completed';
+
 function App() {
-    const [tasks, setTasks] = useState<TaskType[]>([
+    let [tasks, setTasks] = useState<TaskType[]>([
         {id: 1, title: 'milk', isDone: false},
         {id: 2, title: 'milk', isDone: false},
         {id: 3, title: 'milk', isDone: false},
@@ -18,7 +21,7 @@ function App() {
 
     ]);
 
-
+    const [filter, setFilter] = useState<FilterType>('all');
     //FUNCTION
 
 function removeTask (taskId: number) {
