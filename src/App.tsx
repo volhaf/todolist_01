@@ -3,9 +3,10 @@ import logo from './logo.svg';
 import './styles/App.css';
 import {TodoList} from "./components/TodoList";
 import {Header} from "./components/Header";
+import {v1} from "uuid";
 
 export type TaskType = {
-    id: number,
+    id: string,
     title: string,
     isDone: boolean,
 }
@@ -14,22 +15,22 @@ export type FilterType = 'all' | 'active' | 'done';
 
 function App() {
     let [tasks, setTasks] = useState<TaskType[]>([
-        {id: 1, title: 'milk', isDone: false},
-        {id: 2, title: 'milk', isDone: false},
-        {id: 3, title: 'milk', isDone: false},
-        {id: 4, title: 'milk', isDone: false},
+        {id: v1(), title: 'milk', isDone: false},
+        {id: v1(), title: 'milk', isDone: false},
+        {id: v1(), title: 'milk', isDone: false},
+        {id: v1(), title: 'milk', isDone: false},
 
     ]);
 
     const [filter, setFilter] = useState<FilterType>('all');
     //FUNCTION
 
-function removeTask (taskId: number) {
+function removeTask (taskId: string) {
     const nextState: Array<TaskType> = tasks.filter (t => t.id !== taskId)
     setTasks (nextState);
 }
 
-function activeTask (taskId: number) {
+function activeTask (taskId: string) {
 
 }
 

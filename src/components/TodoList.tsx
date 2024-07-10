@@ -5,8 +5,8 @@ import {Fragment} from "react";
 type TodolistPropsType = {
     title: string;
     tasks: TaskType[]
-    removeTask: (taskId: number) => void;
-    activeTask: (taskId: number) => void;
+    removeTask: (taskId: string) => void;
+    activeTask: (taskId: string) => void;
     filter: FilterType;
     changeFilter: (filter: FilterType) => void;
 }
