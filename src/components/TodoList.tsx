@@ -51,7 +51,11 @@ export function TodoList({title, tasks, removeTask, activeTask, changeFilter, fi
             <div className={'input_conteiner'}>
                 <input value={taskTitle}
                 onChange={e => setTaskTitle(e.currentTarget.value)}/>
-                <Button title={'add'} onClick={()=>{addTask(taskTitle)}} />
+                <Button title={'add'} onClick={()=>{
+                    addTask(taskTitle)
+                    setTaskTitle('')
+                }
+                } />
             </div>
 
             {tasksElements}
