@@ -86,7 +86,8 @@ export function TodoList({title, tasks, removeTask, activeTask, changeFilter, fi
         <div className="todolist">
             <h3>{title}</h3>
             <div className={'input_conteiner'}>
-                <input value={taskInput}
+                <input className={taskInputError ? 'error' : ''}
+                       value={taskInput}
                        onChange={changeEventHandler}
                        onKeyDown={keyDownAddTaskHandler}/>
                 <Button
