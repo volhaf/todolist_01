@@ -66,6 +66,7 @@ export function TodoList({title, tasks, removeTask, activeTask, changeFilter, fi
 
     const isTaskButtonDisabled = !Boolean(taskInput.trim()) || taskInput.length > 20;
     const userTaskEmptyError = taskInputError && <div className={'error-message'}>{taskInputError}</div>
+    const userTaskLengthWarning = taskInput.length > 15 && <div>recomendate task title 15 ch</div>
 
 
 
@@ -97,6 +98,7 @@ export function TodoList({title, tasks, removeTask, activeTask, changeFilter, fi
                     disabled={isTaskButtonDisabled}
                 />
                 {userTaskEmptyError}
+                {userTaskLengthWarning}
             </div>
 <ul>
     {tasksElements}
