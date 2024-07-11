@@ -1,6 +1,6 @@
 import {FilterType, TaskType} from "../App";
 import {Button} from "./Button";
-import {Fragment, useState} from "react";
+import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
 
 type TodolistPropsType = {
     title: string;
@@ -46,7 +46,11 @@ export function TodoList({title, tasks, removeTask, activeTask, changeFilter, fi
         addTask(taskInput)
         setTaskInput('')
     }
-
+    const keyDownAddTaskHandler = (event: KeyboardEvent <HTMLInputElement>) => {
+        if (event.key === 'Enter') {
+            addTaskHandler()
+        }
+    }
 
 //********************************************
 
@@ -56,7 +60,8 @@ export function TodoList({title, tasks, removeTask, activeTask, changeFilter, fi
             <h3>{title}</h3>
             <div className={'input_conteiner'}>
                 <input value={taskInput}
-                onChange={e => setTaskInput(e.currentTarget.value)}/>
+                onChange={e => setTaskInput(e.currentTarget.value)}
+                       onKeyDown={keyDownAddTaskHandler}/>
                 <Button title={'add'} onClick={addTaskHandler}/>
             </div>
 
