@@ -45,7 +45,7 @@ function App() {
         setTasks(nextState)
     }
 
-    function activeTask (taskId: string, IsDone: boolean) {
+    function activeTask (taskId: string) {
 
     }
 

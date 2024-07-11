@@ -45,9 +45,12 @@ export function TodoList({title, tasks, removeTask, activeTask, changeFilter, fi
 
 
     const addTaskHandler = () => {
-        addTask(taskInput)
-        setTaskInput('')
+        if (taskInput.trim() !== '') {
+            addTask(taskInput)
+            setTaskInput('')
+        }
     }
+
     const keyDownAddTaskHandler = (event: KeyboardEvent <HTMLInputElement>) => {
         if (event.key === 'Enter') {
             addTaskHandler()}
@@ -56,6 +59,11 @@ export function TodoList({title, tasks, removeTask, activeTask, changeFilter, fi
     const changeEventHandler = (event: ChangeEvent<HTMLInputElement>) => {
        setTaskInput(event.currentTarget.value)
     }
+
+    const isTaskButtonDisabled = !Boolean(taskInput.trim()) || taskInput.length > 20;
+
+
+
 
     const setAllTaskHandler = () => {
         changeFilter('all')
@@ -77,7 +85,11 @@ export function TodoList({title, tasks, removeTask, activeTask, changeFilter, fi
                 <input value={taskInput}
                        onChange={changeEventHandler}
                        onKeyDown={keyDownAddTaskHandler}/>
-                <Button title={'add'} onClick={addTaskHandler}/>
+                <Button
+                    title={'add'}
+                    onClick={addTaskHandler}
+                    disabled={isTaskButtonDisabled}
+                />
             </div>
 
             {tasksElements}
