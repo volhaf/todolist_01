@@ -65,6 +65,7 @@ export function TodoList({title, tasks, removeTask, activeTask, changeFilter, fi
     }
 
     const isTaskButtonDisabled = !Boolean(taskInput.trim()) || taskInput.length > 20;
+    const userTaskEmptyError = taskInputError && <div className={'error-message'}>{taskInputError}</div>
 
 
 
@@ -95,6 +96,7 @@ export function TodoList({title, tasks, removeTask, activeTask, changeFilter, fi
                     onClick={addTaskHandler}
                     disabled={isTaskButtonDisabled}
                 />
+                {userTaskEmptyError}
             </div>
 <ul>
     {tasksElements}
