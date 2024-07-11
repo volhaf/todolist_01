@@ -48,12 +48,21 @@ export function TodoList({title, tasks, removeTask, activeTask, changeFilter, fi
     }
     const keyDownAddTaskHandler = (event: KeyboardEvent <HTMLInputElement>) => {
         if (event.key === 'Enter') {
-            addTaskHandler()
-        }
+            addTaskHandler()}
     }
 
     const changeEventHandler = (event: ChangeEvent<HTMLInputElement>) => {
        setTaskInput(event.currentTarget.value)
+    }
+
+    const setAllTaskHandler = () => {
+        changeFilter('all')
+    }
+    const setActiveTaskHandler = () => {
+        changeFilter('active')
+    }
+    const setCompletedTaskHandler = () => {
+        changeFilter('done')
     }
 
 //********************************************
@@ -74,7 +83,7 @@ export function TodoList({title, tasks, removeTask, activeTask, changeFilter, fi
 <div className={'button_conteiner'}>
     <Button title={'All'} onClick={()=>changeFilter('all')} />
     <Button title={'Active'} onClick={()=>changeFilter('active')} />
-    <Button title={'Done'} onClick={()=>changeFilter('done')} />
+    <Button title={'Done'} onClick={setCompletedTaskHandler} />
 </div>
 
         </div>
