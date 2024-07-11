@@ -56,6 +56,7 @@ export function TodoList({title, tasks, removeTask, activeTask, changeFilter, fi
     }
 
     const keyDownAddTaskHandler = (event: KeyboardEvent <HTMLInputElement>) => {
+        setTaskInputError(null)
         if (event.key === 'Enter') {
             addTaskHandler()}
     }
@@ -87,7 +88,6 @@ export function TodoList({title, tasks, removeTask, activeTask, changeFilter, fi
 
         <div className="todolist">
             <h3>{title}</h3>
-            <div className={'input_conteiner'}>
                 <input className={taskInputError ? 'error' : ''}
                        value={taskInput}
                        onChange={changeEventHandler}
@@ -99,7 +99,6 @@ export function TodoList({title, tasks, removeTask, activeTask, changeFilter, fi
                 />
                 {userTaskEmptyError}
                 {userTaskLengthWarning}
-            </div>
 <ul>
     {tasksElements}
 </ul>
