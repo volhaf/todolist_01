@@ -18,7 +18,7 @@ export function TodoList({title, tasks, removeTask, activeTask, changeFilter, fi
 
     //*********************LOCAL STATE***********************
 
-    const [taskTitle, setTaskTitle] = useState('')
+    const [taskInput, setTaskInput] = useState('')
 
  //********************************************
 
@@ -42,6 +42,9 @@ export function TodoList({title, tasks, removeTask, activeTask, changeFilter, fi
         }) : <p>no task</p>
 
 
+    const
+
+
 //********************************************
 
     return (
@@ -49,11 +52,11 @@ export function TodoList({title, tasks, removeTask, activeTask, changeFilter, fi
         <div className="todolist">
             <h3>{title}</h3>
             <div className={'input_conteiner'}>
-                <input value={taskTitle}
-                onChange={e => setTaskTitle(e.currentTarget.value)}/>
+                <input value={taskInput}
+                onChange={e => setTaskInput(e.currentTarget.value)}/>
                 <Button title={'add'} onClick={()=>{
-                    addTask(taskTitle)
-                    setTaskTitle('')
+                    addTask(taskInput)
+                    setTaskInput('')
                 }
                 } />
             </div>
