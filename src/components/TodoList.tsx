@@ -104,9 +104,23 @@ export function TodoList({title, tasks, removeTask, activeTask, changeFilter, fi
 </ul>
 
 <div className={'button_conteiner'}>
-    <Button title={'All'} onClick={setAllTaskHandler} />
-    <Button title={'Active'} onClick={setActiveTaskHandler} />
-    <Button title={'Done'} onClick={setDoneTaskHandler} />
+    <Button
+        title={'All'}
+        onClick={setAllTaskHandler}
+        buttonColor={filter === "all" ? "button_active" : ''}
+    />
+    <Button
+        title={'Active'}
+        onClick={setActiveTaskHandler}
+        buttonColor={filter === "active" ? "button_active" : ''}
+    />
+    <Button
+        title={'Done'}
+        onClick={setDoneTaskHandler}
+        buttonColor={filter === "done" ? "button_active" : ''}
+
+
+    />
 </div>
 
         </div>

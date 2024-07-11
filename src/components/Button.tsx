@@ -3,16 +3,16 @@ type ButtonProps = {
     onClick: () => void;
     title: string;
     disabled?: boolean;
-    className?: string;
+    buttonColor?: string;
 
 }
 
-export function Button({onClick,title, disabled, className}: ButtonProps) {
+export function Button({onClick,title, disabled, buttonColor}: ButtonProps) {
     return (
         <button
             onClick={onClick}
             disabled={disabled}
-            className={className}
+            className={buttonColor}
         > {title}
         </button>
     )

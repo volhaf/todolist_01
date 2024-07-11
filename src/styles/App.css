@@ -51,6 +51,12 @@ li {
   display: flex;
   gap: 10px;
 }
+.button_active {
+  background-color: rgb(131, 160, 247);
+  color: white;
+  border-radius: 5px;
+  border-color: rgb(131, 160, 247);
+}
 
 .error {
   border: 2px solid red;
@@ -60,3 +66,4 @@ li {
 .error-message {
   color: red;
 }
+
