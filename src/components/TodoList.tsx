@@ -81,7 +81,7 @@ export function TodoList({title, tasks, removeTask, activeTask, changeFilter, fi
             {tasksElements}
 
 <div className={'button_conteiner'}>
-    <Button title={'All'} onClick={()=>changeFilter('all')} />
+    <Button title={'All'} onClick={setCompletedTaskHandler} />
     <Button title={'Active'} onClick={setActiveTaskHandler} />
     <Button title={'Done'} onClick={setCompletedTaskHandler} />
 </div>
