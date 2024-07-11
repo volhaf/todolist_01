@@ -91,8 +91,9 @@ export function TodoList({title, tasks, removeTask, activeTask, changeFilter, fi
                     disabled={isTaskButtonDisabled}
                 />
             </div>
-
-            {tasksElements}
+<ul>
+    {tasksElements}
+</ul>
 
 <div className={'button_conteiner'}>
     <Button title={'All'} onClick={setAllTaskHandler} />
