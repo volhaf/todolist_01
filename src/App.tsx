@@ -15,9 +15,9 @@ export type FilterType = 'all' | 'active' | 'done';
 
 function App() {
     let [tasks, setTasks] = useState<TaskType[]>([
+        {id: v1(), title: 'milk', isDone: true},
         {id: v1(), title: 'milk', isDone: false},
-        {id: v1(), title: 'milk', isDone: false},
-        {id: v1(), title: 'milk', isDone: false},
+        {id: v1(), title: 'milk', isDone: true},
         {id: v1(), title: 'milk', isDone: false},
 
     ]);

@@ -61,7 +61,7 @@ export function TodoList({title, tasks, removeTask, activeTask, changeFilter, fi
     const setActiveTaskHandler = () => {
         changeFilter('active')
     }
-    const setCompletedTaskHandler = () => {
+    const setDoneTaskHandler = () => {
         changeFilter('done')
     }
 
@@ -81,9 +81,9 @@ export function TodoList({title, tasks, removeTask, activeTask, changeFilter, fi
             {tasksElements}
 
 <div className={'button_conteiner'}>
-    <Button title={'All'} onClick={setCompletedTaskHandler} />
+    <Button title={'All'} onClick={setAllTaskHandler} />
     <Button title={'Active'} onClick={setActiveTaskHandler} />
-    <Button title={'Done'} onClick={setCompletedTaskHandler} />
+    <Button title={'Done'} onClick={setDoneTaskHandler} />
 </div>
 
         </div>
