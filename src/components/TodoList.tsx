@@ -42,7 +42,10 @@ export function TodoList({title, tasks, removeTask, activeTask, changeFilter, fi
         }) : <p>no task</p>
 
 
-    const
+    const addTaskHandler = () => {
+        addTask(taskInput)
+        setTaskInput('')
+    }
 
 
 //********************************************
@@ -54,11 +57,7 @@ export function TodoList({title, tasks, removeTask, activeTask, changeFilter, fi
             <div className={'input_conteiner'}>
                 <input value={taskInput}
                 onChange={e => setTaskInput(e.currentTarget.value)}/>
-                <Button title={'add'} onClick={()=>{
-                    addTask(taskInput)
-                    setTaskInput('')
-                }
-                } />
+                <Button title={'add'} onClick={addTaskHandler}/>
             </div>
 
             {tasksElements}
