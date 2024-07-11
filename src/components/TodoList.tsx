@@ -20,6 +20,7 @@ export function TodoList({title, tasks, removeTask, activeTask, changeFilter, fi
     //*********************LOCAL STATE***********************
 
     const [taskInput, setTaskInput] = useState('')
+    const [taskInputError, setTaskInputError] = useState<string | null>(null)
 
  //********************************************
 
@@ -45,10 +46,13 @@ export function TodoList({title, tasks, removeTask, activeTask, changeFilter, fi
 
 
     const addTaskHandler = () => {
-        if (taskInput.trim() !== '') {
+        const trimmedTitle = taskInput.trim()
+        if (trimmedTitle) {
             addTask(taskInput)
-            setTaskInput('')
+        } else {
+            setTaskInputError('Title is required')
         }
+        setTaskInput('')
     }
 
     const keyDownAddTaskHandler = (event: KeyboardEvent <HTMLInputElement>) => {

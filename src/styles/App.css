@@ -54,3 +54,12 @@ li {
   display: flex;
   gap: 10px;
 }
+
+.error {
+  border: 2px solid red;
+  outline: none;
+}
+
+.error-message {
+  color: red;
+}
