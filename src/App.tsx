@@ -25,12 +25,12 @@ function App() {
     const [filter, setFilter] = useState<FilterType>('all');
 
 
-    //FUNCTION
+    //****************FUNCTION *******************
 
-    function addTask() {
+    function addTask(title: string) {
         const newTask = {
             id: v1(),
-            title: 'title',
+            title: title,
             isDone: false,
         }
         const newList = [newTask, ...tasks]
@@ -57,7 +57,7 @@ function activeTask (taskId: string) {
         taskFilter = tasks.filter(t => t.isDone === true)
     }
 
-
+    //********************************************
   return (
     <div className="App">
         <Header/>

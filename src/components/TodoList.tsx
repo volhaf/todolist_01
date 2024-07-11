@@ -1,6 +1,6 @@
 import {FilterType, TaskType} from "../App";
 import {Button} from "./Button";
-import {Fragment} from "react";
+import {Fragment, useState} from "react";
 
 type TodolistPropsType = {
     title: string;
@@ -9,12 +9,21 @@ type TodolistPropsType = {
     activeTask: (taskId: string) => void;
     filter: FilterType;
     changeFilter: (filter: FilterType) => void;
-    addTask: () => void;
+    addTask: (title: string) => void;
 }
 
 
 export function TodoList({title, tasks, removeTask, activeTask, changeFilter, filter, addTask}: TodolistPropsType) {
 
+
+    //*********************LOCAL STATE***********************
+
+    const [taskTitle, setTaskTitle] = useState('')
+
+ //********************************************
+
+
+    //****************FUNCTION *******************
     const tasksElements: Array<JSX.Element> | JSX.Element = tasks.length !== 0
         ? tasks.map((t: TaskType)=> {
             return (
@@ -33,17 +42,17 @@ export function TodoList({title, tasks, removeTask, activeTask, changeFilter, fi
         }) : <p>no task</p>
 
 
-
+//********************************************
 
     return (
 
         <div className="todolist">
             <h3>{title}</h3>
             <div className={'input_conteiner'}>
-                <input/>
-                <Button title={'add'} onClick={addTask} />
+                <input value={taskTitle}
+                onChange={e => setTaskTitle(e.currentTarget.value)}/>
+                <Button title={'add'} onClick={()=>{addTask(taskTitle)}} />
             </div>
-
 
             {tasksElements}
 
