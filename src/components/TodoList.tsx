@@ -14,36 +14,39 @@ type TodolistPropsType = {
 
 
 export function TodoList({title, tasks, removeTask, activeTask, changeFilter, filter, addTask}: TodolistPropsType) {
+
+    const tasksElements: Array<JSX.Element> | JSX.Element = tasks.length !== 0
+        ? tasks.map((t: TaskType)=> {
+            return (
+                <li key={t.id}>
+                    <input
+                        type='checkbox'
+                        checked={t.isDone}
+                    />
+                    <span>{t.title}</span>
+                    <div>
+                        <Button title={'X'} onClick={()=>removeTask(t.id)}/>
+                        <Button title={'!'} onClick={()=>activeTask(t.id)}/>
+                    </div>
+                </li>
+            )
+        }) : <p>no task</p>
+
+
+
+
     return (
+
         <div className="todolist">
             <h3>{title}</h3>
             <div className={'input_conteiner'}>
                 <input/>
                 <Button title={'add'} onClick={addTask} />
             </div>
-            {tasks.length === 0 ? (
-                <p>no tasks</p>
-            ) : (
-                <ul>
-                    {tasks.map(t => {
-                        return (
-                            <li key={t.id}>
-                                <input
-                                    type='checkbox'
-                                    checked={t.isDone}
-                                />
-                                <span>{t.title}</span>
-                                <div>
-                                    <Button title={'X'} onClick={()=>removeTask(t.id)}/>
-                                    <Button title={'!'} onClick={()=>activeTask(t.id)}/>
-                                </div>
 
-                            </li>
-                        )
-                    })}
-                </ul>
-            )
-            }
+
+            {tasksElements}
+
 <div className={'button_conteiner'}>
     <Button title={'All'} onClick={()=>changeFilter('all')} />
     <Button title={'Active'} onClick={()=>changeFilter('active')} />
