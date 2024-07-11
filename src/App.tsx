@@ -36,14 +36,18 @@ function App() {
         const newList = [newTask, ...tasks]
         setTasks(newList)
     }
-function removeTask (taskId: string) {
-    const nextState: Array<TaskType> = tasks.filter (t => t.id !== taskId)
-    setTasks (nextState);
-}
+    function removeTask (taskId: string) {
+        const nextState: Array<TaskType> = tasks.filter (t => t.id !== taskId)
+        setTasks (nextState);
+    }
+    function changeTaskStatus (taskId: string, newIsDoneValue: boolean) {
+        const nextState: Array<TaskType> = tasks.map(t => t.id === taskId ? {...t, isDone: newIsDoneValue} : t)
+        setTasks(nextState)
+    }
 
-function activeTask (taskId: string) {
+    function activeTask (taskId: string, IsDone: boolean) {
 
-}
+    }
 
     function changeFilter (filter: FilterType) {
         setFilter(filter);
@@ -69,7 +73,9 @@ function activeTask (taskId: string) {
                 changeFilter={changeFilter}
                 removeTask={removeTask}
                 activeTask={activeTask}
-                addTask={addTask}/>
+                addTask={addTask}
+                changeTaskStatus={changeTaskStatus}
+            />
 
 
         </div>
