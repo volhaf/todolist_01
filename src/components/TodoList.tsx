@@ -9,16 +9,17 @@ type TodolistPropsType = {
     activeTask: (taskId: string) => void;
     filter: FilterType;
     changeFilter: (filter: FilterType) => void;
+    addTask: () => void;
 }
 
 
-export function TodoList({title, tasks, removeTask, activeTask, changeFilter, filter}: TodolistPropsType) {
+export function TodoList({title, tasks, removeTask, activeTask, changeFilter, filter, addTask}: TodolistPropsType) {
     return (
         <div className="todolist">
             <h3>{title}</h3>
             <div className={'input_conteiner'}>
                 <input/>
-                <Button title={'add'} onClick={() =>{}} />
+                <Button title={'add'} onClick={addTask} />
             </div>
             {tasks.length === 0 ? (
                 <p>no tasks</p>

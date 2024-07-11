@@ -23,8 +23,19 @@ function App() {
     ]);
 
     const [filter, setFilter] = useState<FilterType>('all');
+
+
     //FUNCTION
 
+    function addTask() {
+        const newTask = {
+            id: v1(),
+            title: 'title',
+            isDone: false,
+        }
+        const newList = [newTask, ...tasks]
+        setTasks(newList)
+    }
 function removeTask (taskId: string) {
     const nextState: Array<TaskType> = tasks.filter (t => t.id !== taskId)
     setTasks (nextState);
@@ -57,7 +68,9 @@ function activeTask (taskId: string) {
                 filter={filter}
                 changeFilter={changeFilter}
                 removeTask={removeTask}
-                activeTask={activeTask}/>
+                activeTask={activeTask}
+                addTask={addTask}/>
+
 
         </div>
 
