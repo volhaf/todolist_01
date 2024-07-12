@@ -14,7 +14,16 @@ type TodolistPropsType = {
 }
 
 
-export function TodoList({title, tasks, removeTask, activeTask, changeFilter, filter, addTask, changeTaskStatus}: TodolistPropsType) {
+export function TodoList({
+                             title,
+                             tasks,
+                             removeTask,
+                             activeTask,
+                             changeFilter,
+                             filter,
+                             addTask,
+                             changeTaskStatus
+}: TodolistPropsType) {
 
 
     //*********************LOCAL STATE***********************
@@ -29,7 +38,7 @@ export function TodoList({title, tasks, removeTask, activeTask, changeFilter, fi
     const tasksElements: Array<JSX.Element> | JSX.Element = tasks.length !== 0
         ? tasks.map((t: TaskType)=> {
             return (
-                <li key={t.id}>
+                <li key={t.id} className={t.isDone ? 'is-done' : ''}>
                     <input
                         type='checkbox'
                         checked={t.isDone}
@@ -62,8 +71,10 @@ export function TodoList({title, tasks, removeTask, activeTask, changeFilter, fi
     }
 
     const changeEventHandler = (event: ChangeEvent<HTMLInputElement>) => {
+        taskInputError && setTaskInputError(null)
        setTaskInput(event.currentTarget.value)
     }
+
 
     const isTaskButtonDisabled = !Boolean(taskInput.trim()) || taskInput.length > 20;
     const userTaskEmptyError = taskInputError && <div className={'error-message'}>{taskInputError}</div>
