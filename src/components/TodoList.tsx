@@ -1,12 +1,12 @@
 import {FilterType, TaskType} from "../App";
 import {Button} from "./Button";
 import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
+import {Task} from "./Task";
 
 type TodolistPropsType = {
     title: string;
     tasks: TaskType[]
     removeTask: (taskId: string) => void;
-    activeTask: (taskId: string) => void;
     filter: FilterType;
     changeFilter: (filter: FilterType) => void;
     addTask: (title: string) => void;
@@ -18,7 +18,6 @@ export function TodoList({
                              title,
                              tasks,
                              removeTask,
-                             activeTask,
                              changeFilter,
                              filter,
                              addTask,
@@ -34,24 +33,14 @@ export function TodoList({
  //********************************************
 
 
+
     //****************FUNCTION *******************
     const tasksElements: Array<JSX.Element> | JSX.Element = tasks.length !== 0
-        ? tasks.map((t: TaskType)=> {
-            return (
-                <li key={t.id} className={t.isDone ? 'is-done' : ''}>
-                    <input
-                        type='checkbox'
-                        checked={t.isDone}
-                        onChange={(event) => changeTaskStatus(t.id, event.currentTarget.checked)}
-                    />
-                    <span>{t.title}</span>
-                    <div>
-                        <Button title={'X'} onClick={()=>removeTask(t.id)}/>
-                        <Button title={'!'} onClick={()=>activeTask(t.id)}/>
-                    </div>
-                </li>
-            )
-        }) : <p>no task</p>
+        ? tasks.map((t: TaskType)=> <Task key={t.id}
+            removeTask={removeTask}
+            changeTaskStatus={changeTaskStatus}
+            task={t}
+        />) : <p>no task</p>
 
 
     const addTaskHandler = () => {

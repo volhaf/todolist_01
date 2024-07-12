@@ -58,6 +58,9 @@ li {
   border-color: rgb(131, 160, 247);
 }
 
+.title_active {
+  font-weight: bold;
+}
 .error {
   border: 2px solid red;
   outline: none;

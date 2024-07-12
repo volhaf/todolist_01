@@ -45,10 +45,6 @@ function App() {
         setTasks(nextState)
     }
 
-    function activeTask (taskId: string) {
-
-    }
-
     function changeFilter (filter: FilterType) {
         setFilter(filter);
     }
@@ -72,7 +68,6 @@ function App() {
                 filter={filter}
                 changeFilter={changeFilter}
                 removeTask={removeTask}
-                activeTask={activeTask}
                 addTask={addTask}
                 changeTaskStatus={changeTaskStatus}
             />
