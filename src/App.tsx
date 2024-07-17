@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import logo from './logo.svg';
 import './styles/App.css';
 import {TodoList} from "./components/TodoList";
 import {Header} from "./components/Header";

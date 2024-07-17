@@ -36,11 +36,13 @@ export function TodoList({
 
     //****************FUNCTION *******************
     const tasksElements: Array<JSX.Element> | JSX.Element = tasks.length !== 0
-        ? tasks.map((t: TaskType)=> <Task key={t.id}
-            removeTask={removeTask}
-            changeTaskStatus={changeTaskStatus}
-            task={t}
-        />) : <p>no task</p>
+        ? tasks.map((t: TaskType)=>(
+            <Task key={t.id}
+                  removeTask={removeTask}
+                  changeTaskStatus={changeTaskStatus}
+                  task={t}
+            />)) :
+        <p>no task</p>
 
 
     const addTaskHandler = () => {
