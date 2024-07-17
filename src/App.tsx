@@ -4,6 +4,7 @@ import {TodoList} from "./components/TodoList";
 import {Header} from "./components/Header";
 import {v1} from "uuid";
 
+//****************TYPE *******************
 export type TaskType = {
     id: string,
     title: string,
@@ -12,16 +13,33 @@ export type TaskType = {
 
 export type FilterType = 'all' | 'active' | 'done';
 
-function App() {
-    let [tasks, setTasks] = useState<TaskType[]>([
-        {id: v1(), title: 'milk', isDone: true},
-        {id: v1(), title: 'milk', isDone: false},
-        {id: v1(), title: 'milk', isDone: true},
-        {id: v1(), title: 'milk', isDone: false},
+type TodoListType = {
+    id: string,
+    title: string,
+    filter:FilterType
+    tasks: TaskType[]
+}
+//********************************************
 
+function App() {
+
+
+
+    const [todolist, setTodolist] = useState<TodoListType[]>( [
+        {id: v1(), title: 'buy', filter: 'all', tasks: [
+                {id: v1(), title: 'milk', isDone: true},
+                {id: v1(), title: 'milk', isDone: false},
+                {id: v1(), title: 'milk', isDone: true},
+            ]},
+        {id: v1(), title: 'read', filter: 'all', tasks: [
+                {id: v1(), title: 'milk', isDone: true},
+                {id: v1(), title: 'milk', isDone: false},
+                {id: v1(), title: 'milk', isDone: true},
+            ]},
     ]);
 
-    const [filter, setFilter] = useState<FilterType>('all');
+
+
 
 
     //****************FUNCTION *******************
@@ -57,6 +75,8 @@ function App() {
     }
 
     //********************************************
+
+
   return (
     <div className="App">
         <Header/>
@@ -68,9 +88,7 @@ function App() {
                 changeFilter={changeFilter}
                 removeTask={removeTask}
                 addTask={addTask}
-                changeTaskStatus={changeTaskStatus}
-            />
-
+                changeTaskStatus={changeTaskStatus}/>
 
         </div>
 
