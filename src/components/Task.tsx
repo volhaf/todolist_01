@@ -22,8 +22,15 @@ export function Task ({removeTask, changeTaskStatus, task}:TaskPropsType ) {
             />
             <span className={`${isActive ? 'title_active' : ''}`}>{task.title}</span>
             <div>
-                <Button title={'X'} onClick={()=>removeTask(task.id)}/>
-                <Button title={'!'} onClick={ () => setIsActive(!isActive) } />
+                <Button
+                    title={'X'}
+                    onClick={()=>removeTask(task.id)}
+                    disabled={isActive}
+                    />
+                <Button
+                    title={'!'}
+                    onClick={ () => setIsActive(!isActive)}
+                />
             </div>
         </li>
     )
